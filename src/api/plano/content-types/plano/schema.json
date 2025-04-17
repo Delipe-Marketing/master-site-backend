@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "planos",
+  "info": {
+    "singularName": "plano",
+    "pluralName": "planos",
+    "displayName": "Plano",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "mega": {
+      "type": "string",
+      "required": true
+    },
+    "unity": {
+      "type": "string",
+      "required": true
+    },
+    "planoNome": {
+      "type": "string"
+    },
+    "priceCurrent": {
+      "type": "decimal"
+    },
+    "pricePrevious": {
+      "type": "decimal"
+    },
+    "city": {
+      "type": "string"
+    },
+    "apps": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.apps"
+    },
+    "included": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

@@ -397,6 +397,39 @@ export interface ApiBannerHomeBannerHome extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPlanoPlano extends Struct.CollectionTypeSchema {
+  collectionName: 'planos';
+  info: {
+    description: '';
+    displayName: 'Plano';
+    pluralName: 'planos';
+    singularName: 'plano';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    apps: Schema.Attribute.Component<'elements.apps', true>;
+    city: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    included: Schema.Attribute.Media<'images', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::plano.plano'> &
+      Schema.Attribute.Private;
+    mega: Schema.Attribute.String & Schema.Attribute.Required;
+    planoNome: Schema.Attribute.String;
+    priceCurrent: Schema.Attribute.Decimal;
+    pricePrevious: Schema.Attribute.Decimal;
+    publishedAt: Schema.Attribute.DateTime;
+    unity: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -907,6 +940,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::banner-home.banner-home': ApiBannerHomeBannerHome;
+      'api::plano.plano': ApiPlanoPlano;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
